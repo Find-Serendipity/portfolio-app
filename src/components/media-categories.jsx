@@ -1,5 +1,5 @@
 export const mediaCategories = {
-  kazoogames: [
+  Kazoo_Game_Night: [
     "20170425_160312.jpg",
     "20240228_192248.jpg",
     "20240228_192250.jpg",
@@ -8,7 +8,7 @@ export const mediaCategories = {
     "20240614_210738.jpg",
     "20240614_210742.jpg",
   ],
-  airzoo: [
+  Air_Zoo: [
     "20190715_144149.jpg",
     "20200607_170700.jpg",
     "20240126_193040.jpg",
@@ -19,7 +19,7 @@ export const mediaCategories = {
     "20240126_200037.jpg",
     "20240127_124808.jpg",
   ],
-  people: [
+  People: [
     "20240207_201801.jpg",
     "20240207_201813.jpg",
     "20240207_201814.jpg",
@@ -38,6 +38,6 @@ export const mediaCategories = {
     "20240207_201938.jpg",
     "20240207_201943.jpg",
   ],
-  stills: ["20240207_201943.jpg"],
-  videos: ["20241231_115940_1.mp4"],
+  Stills: ["20240207_201943.jpg"],
+  Videos: ["20241231_115940_1.mp4"],
 };

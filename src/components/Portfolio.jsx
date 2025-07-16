@@ -66,7 +66,12 @@ const Portfolio = () => {
               onClick={() => setActiveCategory(category)}
               className={activeCategory === category ? "active" : ""}
             >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              {
+                (category.charAt(0).toUpperCase() + category.slice(1)).replace(
+                  /_/g,
+                  " "
+                )
+              }
             </button>
           ))}
         </div>
