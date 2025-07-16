@@ -38,8 +38,6 @@ export const mediaCategories = {
     "20240207_201938.jpg",
     "20240207_201943.jpg",
   ],
-  stills: [
-    "20240207_201943.jpg",
-  ],
+  stills: ["20240207_201943.jpg"],
   videos: ["20241231_115940_1.mp4"],
 };
