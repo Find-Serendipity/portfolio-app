@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Portfolio.css";
-import { mediaCategories } from "./media-categories.js";
+import { mediaCategories } from "./media-categories.jsx";
 
 const Portfolio = () => {
   const [media, setMedia] = useState([]);
