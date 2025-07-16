@@ -118,10 +118,7 @@ const Portfolio = () => {
 
       {selectedMedia && (
         <div className="modal" onClick={handleCloseModal}>
-          <button
-            className="prev"
-            onClick={handlePrevious}
-          >
+          <button className="prev" onClick={handlePrevious}>
             &#10094;
           </button>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -140,10 +137,7 @@ const Portfolio = () => {
               </video>
             )}
           </div>
-          <button
-            className="next"
-            onClick={handleNext}
-          >
+          <button className="next" onClick={handleNext}>
             &#10095;
           </button>
         </div>
