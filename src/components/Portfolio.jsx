@@ -4,7 +4,7 @@ import { mediaCategories } from "./media-categories.jsx";
 
 const Portfolio = () => {
   const [media, setMedia] = useState([]);
-  const [selectedMedia, setSelectedMedia] = useState(null);
+  const [selectedMediaIndex, setSelectedMediaIndex] = useState(null);
   const [activeCategory, setActiveCategory] = useState("all");
 
   useEffect(() => {
@@ -36,18 +36,38 @@ const Portfolio = () => {
     Promise.all(promises).then(setMedia);
   }, []);
 
-  const handleMediaClick = (item) => {
-    setSelectedMedia(item);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedMedia(null);
-  };
-
   const filteredMedia =
     activeCategory === "all"
       ? media
       : media.filter((item) => item.category === activeCategory);
+
+  const handleMediaClick = (item) => {
+    const index = filteredMedia.findIndex(
+      (mediaItem) => mediaItem.fileName === item.fileName
+    );
+    setSelectedMediaIndex(index);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedMediaIndex(null);
+  };
+
+  const handleNext = (e) => {
+    e.stopPropagation();
+    setSelectedMediaIndex((prevIndex) =>
+      prevIndex === filteredMedia.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrevious = (e) => {
+    e.stopPropagation();
+    setSelectedMediaIndex((prevIndex) =>
+      prevIndex === 0 ? filteredMedia.length - 1 : prevIndex - 1
+    );
+  };
+
+  const selectedMedia =
+    selectedMediaIndex !== null ? filteredMedia[selectedMediaIndex] : null;
 
   return (
     <div>
@@ -66,12 +86,10 @@ const Portfolio = () => {
               onClick={() => setActiveCategory(category)}
               className={activeCategory === category ? "active" : ""}
             >
-              {
-                (category.charAt(0).toUpperCase() + category.slice(1)).replace(
-                  /_/g,
-                  " "
-                )
-              }
+              {(category.charAt(0).toUpperCase() + category.slice(1)).replace(
+                /_/g,
+                " "
+              )}
             </button>
           ))}
         </div>
@@ -100,6 +118,12 @@ const Portfolio = () => {
 
       {selectedMedia && (
         <div className="modal" onClick={handleCloseModal}>
+          <button
+            className="prev"
+            onClick={handlePrevious}
+          >
+            &#10094;
+          </button>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <span className="close" onClick={handleCloseModal}>
               &times;
@@ -116,6 +140,12 @@ const Portfolio = () => {
               </video>
             )}
           </div>
+          <button
+            className="next"
+            onClick={handleNext}
+          >
+            &#10095;
+          </button>
         </div>
       )}
     </div>
